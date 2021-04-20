@@ -8,10 +8,13 @@ console.log(yearlyPlan)
 
 import {plantSeeds} from "./tractor.js"
 import {usePlants} from "./field.js"
+import { harvestPlants } from "./harvester.js"
 
 plantSeeds(yearlyPlan)
-const plantedField = usePlants()
+const plants = usePlants()
 
-console.log(plantedField)
+console.log(plants)
 
 
+const harvest = harvestPlants(plants)
+console.log(harvest)

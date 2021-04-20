@@ -11,7 +11,9 @@ export const plantSeeds = (plantingPlan) => {
     for (let i = 0; i < row.length; i++) {
       if (row[i] === "Corn") {
         const cornSeed = createCorn();
-        addPlant(cornSeed);
+        for (const corn of cornSeed) {
+        addPlant(corn);
+        }
       } else if (row[i] === "Asparagus") {
         const asparagusSeed = createAsparagus();
         addPlant(asparagusSeed);
