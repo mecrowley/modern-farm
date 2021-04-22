@@ -1,20 +1,30 @@
-console.log("Welcome to the main module")
+import { createPlan } from "./plan.js";
+import { plantSeeds } from "./tractor.js";
+import { usePlants } from "./field.js";
+import { harvestPlants } from "./harvester.js";
+import { Catalog } from "./catalog.js";
 
-import { createPlan } from "./plan.js"
+console.log("Welcome to the main module");
 
-const yearlyPlan = createPlan()
+// creating the harvest plan
+const yearlyPlan = createPlan();
+console.log(yearlyPlan);
 
-console.log(yearlyPlan)
+// planting the seeds
+plantSeeds(yearlyPlan);
+const plants = usePlants();
+console.log(plants);
 
-import {plantSeeds} from "./tractor.js"
-import {usePlants} from "./field.js"
-import { harvestPlants } from "./harvester.js"
+// getting the final plant harvest
+const harvest = harvestPlants(plants);
+console.log(harvest);
 
-plantSeeds(yearlyPlan)
-const plants = usePlants()
+// creating the html to display the plant harvest
+const catalogHTML = Catalog(harvest);
 
-console.log(plants)
+// adding the catalog html to the website 
+const mainContainer = document.querySelector(".container")
 
+const applicationHTML = `${catalogHTML}`
 
-const harvest = harvestPlants(plants)
-console.log(harvest)
+mainContainer.innerHTML = applicationHTML
